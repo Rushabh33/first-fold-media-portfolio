@@ -1,0 +1,51 @@
+/* Hover animation, 0 - 100 width */
+
+.hover-width-animation {
+  position: relative;
+  overflow: hidden; /* Ensures the pseudo-element is contained within the button */
+}
+
+.hover-width-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  transition: all 0.2s ease; /* Animation for the background */
+  z-index: -1;
+}
+
+.hover-width-animation span {
+  transition: all 0.2s ease; /* Optional: transition for the text color */
+}
+
+.hover-width-animation:hover path {
+  fill: black; /* New fill color on hover */
+  transition: all 0.2s ease 0.1s; /* Delay the fill transition */
+}
+
+.hover-width-animation::before {
+  @apply bg-yellow-400; /* Tailwind utility class */
+}
+
+.hover-width-animation[data-open='true'] {
+  @apply bg-yellow-400; /* Tailwind utility class */
+}
+
+.hover-width-animation[data-open='true'] span {
+  @apply text-black; /* Tailwind utility class */
+}
+
+.hover-width-animation [data-open='true'] path {
+  @apply fill-black; /* Tailwind utility class */
+}
+
+.hover-width-animation:hover,
+.hover-width-animation:hover span {
+  color: black; /* Optional: Change text color on hover */
+}
+
+.hover-width-animation:hover::before {
+  width: 100%; /* Extends the background to the full width on hover */
+}

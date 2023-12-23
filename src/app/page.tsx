@@ -1,113 +1,153 @@
-import Image from 'next/image'
+'use client';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
+import { Button, ICON_SIZE } from '../components/blocks/button';
+import { Accordian } from '../components/blocks/accordian';
+import { Card } from '@nextui-org/react';
+import Image from 'next/image';
+import LawPortfolio from '../../public/legal-portfolio-design.jpg';
+import PetShopPortfolio from '../../public/pet-shop-portfolio-design.jpg';
+import { List } from '@/components/blocks/list';
+import { Link } from '@/components/blocks/link';
+import { ARROW_TYPES } from '@/components/constants';
+import { ContactFrom } from '@/components/form/Form';
+
+export default function Page() {
+  const accordianContent = [
+    {
+      title: 'website and webflow development',
+      content: `Your website is your business's first impression, and we understand the weight it carries. Our enterprise-level front-end development expertise ensures a site with unparalleled performance and speed. We prioritize your needs, offering a professionally crafted, technically advanced website that sets your business apart in the digital marketplace.`,
+    },
+    {
+      title: 'web design and brand refresh',
+      content: `A cohesive and customer-centric brand presence is at the heart of our web design approach. We collaborate with you to align our creative vision with your business goals, ensuring a design that builds trust, engages your audience, and drives conversions. Our strategic designs tell your brand's story compellingly and visually.`,
+    },
+    {
+      title: 'our process',
+      content: `Our web development journey combines research, design, and development, tailored to your unique business needs. We start with comprehensive research to understand your vision, leading to two design layouts for your choice. Post final design approval, our development phase brings your vision to life with precision, ensuring satisfaction without surprises.`,
+    },
+    {
+      title: 'pricing',
+      content: `We offer flexible and transparent pricing, starting with a basic 3-page website package, including unique design, exhaustive research, unlimited revisions, and a year of free hosting. We adapt our services to match the complexity of your needs, ensuring a scalable solution. Contact us for detailed pricing and tailored service options.`,
+    },
+  ];
+
+  const pageTitle = () => {
+    return (
+      <>
+        <h1 className='hidden sm:block sm:text-7xl w-3/4 md:w-[448px]'>
+          Invest in your Digital Reputation
+        </h1>
+        <h1 className='block sm:hidden text-7xl'>First Fold Media</h1>
+      </>
+    );
+  };
+  const titleDescription = () => {
+    return (
+      <>
+        <p className='sm:hidden xs:max-w-[310px] text-md mt-0.5'>
+          Expertly designed, meticulously developed. Websites that elevate your
+          brand's online image
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <p className='hidden sm:inline-block max-w-2xl text-lg mt-4'>
+          Expertly designed, meticulously developed. Elevate your brand with a
+          digital presence that captivates your audience, drives engagement, and
+          turns{' '}
+          <strong className='px-1 bg-yellow-400 text-black'>visitors</strong>{' '}
+          into{' '}
+          <strong className='px-1 bg-yellow-400 text-black'>
+            loyal customers
+          </strong>
+          . Let's build your online success story.
+        </p>
+      </>
+    );
+  };
+  return (
+    <div className='relative'>
+      <header>
+        <div className='hidden sm:block text-xs w-full text-right'>
+          <p>First Fold Media</p>
+          <p>Made with {'<3'} in Toronto</p>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className='flex sm:justify-between'>{pageTitle()}</div>
+        {titleDescription()}
+        <Button
+          classNames='mt-4 w-fit'
+          arrowType={ARROW_TYPES.INTERNAL_LINK}
+          href='#form'
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          ask how
+        </Button>
+      </header>
+      <section className='columns-1 sm:columns-2 gap-x-10 space-y-16 sm:mt-[10%]'>
+        <Accordian accordianOptions={accordianContent} classNames='mt-32' />
+        <Card className='group relative rounded-lg p-6 bg-orange-300 outline'>
+          <Image
+            alt='Woman listing to music'
+            className='w-full max-h-[25rem] rounded-lg object-cover object-top leading-[29px]'
+            src={LawPortfolio}
+          />
+          <div className='absolute left-0 top-0 w-full h-0 overflow-hidden bg-gray-950 bg-opacity-95 !ease-in !duration-300 transition-height group-hover:h-full'>
+            <div className='p-8'>
+              <h2 className='text-3xl sm:text-4xl border-b-3 leading-[31px]'>
+                Hellinga Law & Consulting
+              </h2>
+              <Link
+                classNames='border-b-2 justify-start items-center pt-1'
+                href='#'
+              >
+                <span className='hidden sm:block'>
+                  www.hellingalawandconsulting.com
+                </span>
+                <span className='sm:hidden'>go to website</span>
+              </Link>
+              <List
+                listContent={[
+                  'website development',
+                  'website design',
+                  'brand refresh',
+                  '**currently under development**',
+                ]}
+                classNames='mt-1'
+              />
+            </div>
+          </div>
+        </Card>
+        <Card className='group relative rounded-lg p-6 bg-orange-600 outline'>
+          <Image
+            alt='Woman listing to music'
+            className='w-full max-h-[45rem] rounded-lg object-cover object-top leading-[29px]'
+            src={PetShopPortfolio}
+          />
+          <div className='absolute left-0 top-0 w-full h-0 overflow-hidden bg-gray-950 bg-opacity-95 !ease-in !duration-300 transition-height  group-hover:h-full'>
+            <div className='p-8'>
+              {/* <h2 className='text-4xl border-b-3'>Hellinga Law & Consulting</h2> */}
+              <Link
+                classNames='justify-between border-b-3 text-3xl sm:text-4xl h-auto'
+                href='#'
+                iconSize={ICON_SIZE.xl}
+              >
+                Pet First
+              </Link>
+              <List
+                listContent={[
+                  'brand refresh',
+                  'website design',
+                  'website development',
+                  '**currently under development**',
+                ]}
+                classNames='mt-1'
+              />
+            </div>
+          </div>
+        </Card>
+      </section>
+      <section className='my-8 p-6 outline rounded-lg'>
+        <h3 className='inline-block text-xl sm:text-3xl border-b-3 w-full'>
+          Ask how
+        </h3>
+        <ContactFrom />
+      </section>
+    </div>
+  );
 }

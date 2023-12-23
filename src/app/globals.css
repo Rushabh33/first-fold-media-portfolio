@@ -16,12 +16,33 @@
   }
 }
 
+html {
+  font-family: var(--font-montserrat);
+}
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-bebas);
+}
+
+button,
+a {
+  font-family: var(--font-bebas);
+  /* text-transform: uppercase; */
+  font-weight: 700;
+}
+
+span {
+  color: white;
+}
+
+hr {
+  display: none;
 }
