@@ -20,15 +20,10 @@ export default function RootLayout({
       <body className='pt-12 md:pt-20 px-10 md:px-16 max-w-screen-2xl mx-auto relative overflow-x-hidden'>
         <Image
           alt='background style image'
-          className='absolute sm:right-0 animate-spin-slow right-[-100px] top-[120px] sm:top-0 overflow-hidden'
+          className='absolute sm:right-0 animate-spin-slow right-[-100px] top-[120px] sm:top-0 '
           src={ChromeSwirl}
         />
         <Providers>{children}</Providers>
-        {/* <Image
-          alt='background style image'
-          className=' animate-spin-slow bottom-0 -z-[1]'
-          src={ChromeSwirl2}
-        /> */}
       </body>
     </html>
   );

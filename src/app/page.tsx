@@ -4,12 +4,13 @@ import { Button, ICON_SIZE } from '../components/blocks/button';
 import { Accordian } from '../components/blocks/accordian';
 import { Card } from '@nextui-org/react';
 import Image from 'next/image';
-import LawPortfolio from '../../public/legal-portfolio-design.jpg';
-import PetShopPortfolio from '../../public/pet-shop-portfolio-design.jpg';
 import { List } from '@/components/blocks/list';
 import { Link } from '@/components/blocks/link';
 import { ARROW_TYPES } from '@/components/constants';
 import { ContactFrom } from '@/components/form/Form';
+import ChromeSwirl2 from '../../public/chrome-swirl-2.png';
+import LawPortfolio from '../../public/legal-portfolio-design.jpg';
+import PetShopPortfolio from '../../public/pet-shop-portfolio-design.jpg';
 
 export default function Page() {
   const accordianContent = [
@@ -63,7 +64,7 @@ export default function Page() {
     );
   };
   return (
-    <div className='relative'>
+    <div className='relative overflow-hidden px-1'>
       <header>
         <div className='hidden sm:block text-xs w-full text-right'>
           <p>First Fold Media</p>
@@ -148,6 +149,11 @@ export default function Page() {
         </h3>
         <ContactFrom />
       </section>
+      <Image
+        alt='background style image'
+        className='absolute sm:right-0 animate-spin-slow right-[-100px] bottom-0 -z-[1] w-1/2'
+        src={ChromeSwirl2}
+      />
     </div>
   );
 }
