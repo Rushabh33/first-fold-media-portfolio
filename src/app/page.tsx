@@ -46,7 +46,7 @@ export default function Page() {
       <>
         <p className='sm:hidden xs:max-w-[310px] text-md mt-0.5'>
           Expertly designed, meticulously developed. Websites that elevate your
-          brand's online image
+          brand&apos;s online image
         </p>
         <p className='hidden sm:inline-block max-w-2xl text-lg mt-4'>
           Expertly designed, meticulously developed. Elevate your brand with a
@@ -57,7 +57,7 @@ export default function Page() {
           <strong className='px-1 bg-yellow-400 text-black'>
             loyal customers
           </strong>
-          . Let's build your online success story.
+          . Let&apos;s build your online success story.
         </p>
       </>
     );

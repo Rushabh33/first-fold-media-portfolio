@@ -1,4 +1,3 @@
-import { useForm, ValidationError } from '@formspree/react';
 import { Input as NextInput, Textarea } from '@nextui-org/react';
 import { Button } from '../blocks/button';
 import { ARROW_TYPES, CONTACT_FORM as FORM } from '../constants';
@@ -48,7 +47,7 @@ export function ContactFrom() {
     if (Object.keys(fieldErrors).length > 0) {
       validate();
     }
-  }, [inputs]);
+  }, [inputs, fieldErrors, validate]);
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.persist();
