@@ -151,7 +151,7 @@ export default function Page() {
       </section>
       <Image
         alt='background style image'
-        className='absolute sm:right-0 animate-spin-slow right-[-100px] bottom-0 -z-[1] w-1/2'
+        className='absolute animate-spin-slow bottom-0 right-0 -z-[1] w-1/2'
         src={ChromeSwirl2}
       />
     </div>
